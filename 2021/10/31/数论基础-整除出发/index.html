@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Zhuangpx">
+    
+    <title>
+        
+            数论基础(整除出发) |
+        
+        Zhuangpx
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/mio.jpg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"en","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":false,"init_open":true},"style":{"primary_color":"#FFCCFF","avatar":"/images/mio.jpg","favicon":"/images/mio.jpg","article_img_align":"center","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/violet.png","description":"Zhuangpx - \" violet apricity \""},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"default"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/%E8%96%87%E5%A6%B9%E4%BE%A7%E8%84%B8.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Zhuangpx
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                HOME
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                ARCHIVES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/links"
+                            >
+                                LINKS
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                ABOUT
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                CATEGORIES
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                TAGS
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">CATEGORIES</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">TAGS</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">数论基础(整除出发)</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/mio.jpg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Zhuangpx</span>
+                        
+                            <span class="author-label">站长</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-10-31 15:28:49
+    </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/ACM/">ACM</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E8%AE%BA/">数论</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>从整除相关的知识出发开始学习数论，至于原因，不谈体系，至少对我而言最开始接触的数论知识就是欧几里得，并且我学习的第一个算法也是扩展欧几里得，而欧几里得应该说从整除起步，于是决定从这里开始学习数论基础，另一个原因是参考文章也是如此。文末有参考链接(繁凡orz)。</p>
+<h2 id="整除"><a href="#整除" class="headerlink" title="整除"></a>整除</h2><p><strong>定义</strong>：整数 <code>n</code> 除以整数 <code>d</code> 余数为0，即 <code>d</code> 能整除 <code>n</code> ，称 d 是 <code>n</code> 的约数(因数)，<code>n</code> 是 <code>d</code> 的倍数，记为 $d \mid n$ 。</p>
+<p>并且能够引出以下<strong>性质</strong>：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A81.png?token=ARNPSRKQUACHFX3NA6OXDQLBPZEB4"
+                      alt="整除性质1"
+                ></p>
+<p>其中几条在竞赛中较为重要，常做推导，优化和中间转换：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%95%B4%E9%99%A4%E6%80%A7%E8%B4%A82.png?token=ARNPSRLXTUZ5VCQK7SB5TX3BPZEZ6"
+                      alt="整除性质2"
+                ></p>
+<p>其中第五条补充证明：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%80%A7%E8%B4%A85%E8%AF%81%E6%98%8E.png?token=ARNPSRI52YQVFZZVVFFXXVDBPZE42"
+                      alt="整除性质5证明"
+                ></p>
+<h2 id="带余除法"><a href="#带余除法" class="headerlink" title="带余除法"></a>带余除法</h2><p>有整除必然有非整除，因此就有带余除法(欧几里得除法)，oiwiki这样总结：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%B8%A6%E4%BD%99%E9%99%A4%E6%B3%95.png?token=ARNPSRKTXJEC3AMHOLG73CTBPZE62"
+                      alt="带余除法"
+                ></p>
+<p>实际上带余除法也可扩展至实数范围</p>
+<h2 id="质数-素数"><a href="#质数-素数" class="headerlink" title="质数(素数)"></a>质数(素数)</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E8%B4%A8%E6%95%B0.png?token=ARNPSRJ2E2NQUWEV5XWADG3BPZFAK"
+                      alt="质数"
+                ></p>
+<h3 id="质数判定"><a href="#质数判定" class="headerlink" title="质数判定"></a>质数判定</h3><p>考虑如何判定质数</p>
+<ul>
+<li>暴力试除法</li>
+</ul>
+<p>判断一个数是否为质数最粗暴的方法就是讨论比它小的数是否是它的因数，也就是<strong>枚举因数</strong>，因为因数肯定是成对存在的( <code>a*b=n</code> )，因此第一个优化显然可以考虑枚举至 $\sqrt{n}$ 。此时时间复杂度是 $O(\sqrt{n})$ 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">2</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=x;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(x%i==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>考虑将枚举的因数优化，只枚举质因子(合数因子肯定有质数因子)。于是有了以下这种 <code>k*n+1</code> 法。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/kn%2B1%E6%B3%95.png?token=ARNPSRMPQEBBKZ2FKQJWYFDBPZFBY"
+                      alt="kn+1法"
+                ></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">is_prime</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">2</span>||n==<span class="number">3</span>||n==<span class="number">5</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>||n%<span class="number">3</span>==<span class="number">0</span>||n%<span class="number">5</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> d=(<span class="number">6</span>+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> add[<span class="number">8</span>]=&#123;<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">2</span>,<span class="number">6</span>&#125;;</span><br><span class="line">    <span class="comment">// 6+1 6+5  2*6+1 2*6+5  3*6+1 3*6+5 -----&gt; k*6+i</span></span><br><span class="line">    <span class="keyword">while</span>(d*d&lt;=n) <span class="keyword">for</span>(<span class="keyword">auto</span> i:add) &#123; <span class="keyword">if</span>(n%d==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>; d+=i; &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>预处理</li>
+</ul>
+<p>一种名为 <code>MillerRabin</code> 的<strong>素数测试</strong>，针对单个数字快速测试。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E9%A2%84%E5%A4%84%E7%90%86%E8%B4%A8%E6%95%B0.png?token=ARNPSRLAPJEI5IEQPV4SB2LBPZFDQ"
+                      alt="预处理质数"
+                ></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">Rand</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">static</span> ll x=(<span class="built_in">srand</span>((<span class="keyword">int</span>)<span class="built_in">time</span>(<span class="number">0</span>)),<span class="built_in">rand</span>());</span><br><span class="line">    x+=<span class="number">1000003</span>;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">1000000007</span>) x-=<span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Witness</span><span class="params">(ll a,ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll t=<span class="number">0</span>,u=n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!(u&amp;<span class="number">1</span>))u&gt;&gt;=<span class="number">1</span>,t++;</span><br><span class="line">    ll y,x=<span class="built_in">qpow</span>(a,u,n);<span class="comment">//快速幂</span></span><br><span class="line">    <span class="keyword">while</span>(t--)&#123;</span><br><span class="line">        y=x*x%n;</span><br><span class="line">        <span class="keyword">if</span>(y==<span class="number">1</span>&amp;&amp;x!=<span class="number">1</span>&amp;&amp;x!=n<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        x=y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> x!=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">MillerRabin</span><span class="params">(ll n,ll s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">2</span>||n==<span class="number">3</span>||n==<span class="number">5</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>||n%<span class="number">3</span>==<span class="number">0</span>||n%<span class="number">5</span>==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(s--)&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">Witness</span>(<span class="built_in">Rand</span>()%(n<span class="number">-1</span>)+<span class="number">1</span>,n)) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="素数测试"><a href="#素数测试" class="headerlink" title="素数测试"></a>素数测试</h3><p>上述提到 <code>MillerRabin</code> 是一种素数测试方法，先讨论什么是素数测试。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E7%B4%A0%E6%95%B0%E6%B5%8B%E8%AF%95.png?token=ARNPSRPT25MRQQ5QI225PC3BPZFFA"
+                      alt="素数测试"
+                ></p>
+<p>再来介绍几种概率性素数测试：</p>
+<ul>
+<li><code>Fermat</code> 素性测试</li>
+</ul>
+<p>理论依据来源于费马小定理，思想在于不断选取 <code>[2,n-1]</code> 中的基 <code>a</code> 并检验每次是否有 <code>a^(n-1)==1 (mod n)</code> 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ Version</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">millerRabin</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">3</span>) <span class="keyword">return</span> n == <span class="number">2</span>;</span><br><span class="line">  <span class="comment">// test_time 为测试次数,建议设为不小于 8</span></span><br><span class="line">  <span class="comment">// 的整数以保证正确率,但也不宜过大,否则会影响效率</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= test_time; ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="built_in">rand</span>() % (n - <span class="number">2</span>) + <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">quickPow</span>(a, n - <span class="number">1</span>, n) != <span class="number">1</span>) <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 快速幂</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然而其正确性并不能保证。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/Fermat%E7%B4%A0%E6%95%B0%E6%B5%8B%E8%AF%95.png?token=ARNPSRMOTCJHZEELQKA7TDDBPZFGU"
+                      alt="Fermat素数测试"
+                ></p>
+<ul>
+<li><code>Miller-Rabin</code>  素性测试</li>
+</ul>
+<p>即上述说提到的。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/Miller-Rabin%E7%B4%A0%E6%95%B0%E6%B5%8B%E8%AF%95.png?token=ARNPSRNCTPIKNN372LK6P6LBPZFH4"
+                      alt="Miller-Rabin素数测试"
+                ></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// C++ Version</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">millerRabin</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n &lt; <span class="number">3</span> || n % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> n == <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">int</span> a = n - <span class="number">1</span>, b = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span> (a % <span class="number">2</span> == <span class="number">0</span>) a /= <span class="number">2</span>, ++b;</span><br><span class="line">  <span class="comment">// test_time 为测试次数,建议设为不小于 8</span></span><br><span class="line">  <span class="comment">// 的整数以保证正确率,但也不宜过大,否则会影响效率</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j; i &lt;= test_time; ++i) &#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="built_in">rand</span>() % (n - <span class="number">2</span>) + <span class="number">2</span>, v = <span class="built_in">quickPow</span>(x, a, n); <span class="comment">// 快速幂</span></span><br><span class="line">    <span class="keyword">if</span> (v == <span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; b; ++j) &#123;</span><br><span class="line">      <span class="keyword">if</span> (v == n - <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">      v = (<span class="keyword">long</span> <span class="keyword">long</span>)v * v % n;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (j &gt;= b) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="质数筛"><a href="#质数筛" class="headerlink" title="质数筛"></a>质数筛</h3><p>所谓的筛其实是筛选的意思，质数筛即通过某种方法筛选出质数和合数，并且预处理出来。通过合适的筛法可以高效率地预处理出质数表。</p>
+<ul>
+<li>Eratosthenes 筛法 （埃拉托色尼筛法）</li>
+</ul>
+<p>简称埃式筛。对于一个数无论是否为质数，其倍数一定是合数，于是可以从小到大枚举数字，对其倍数标记为合数，从而达到筛的效果。此法可以对一个数判断也可以作为预处理。因为合数肯定有质数因子，所以可以只对质数进行倍增筛。</p>
+<p>关于复杂度的证明，比较繁琐，具体见文末链接。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e5</span>;</span><br><span class="line"><span class="keyword">int</span> vis[N],pri[N],pcnt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Eprime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(vis[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            pri[++pcnt]=i;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i*<span class="number">2</span>;j&lt;=n;j+=i)&#123;</span><br><span class="line">                vis[j]=<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>欧拉筛(线性筛)</li>
+</ul>
+<p>发现埃氏筛对于每个数可能被多个数重复筛到，因此复杂度比较高，考虑每个数只筛一遍，从而将复杂度将到线性的 <code>O(n)</code> 。</p>
+<p>首先从小到大筛，并及时存下质数 <code>pri[j]</code> ，当倍增筛合数时第一个满足 <code>i%pri[j]==0</code> 的合数的最小质因子显然是 <code>pri[j]</code> ，并且 <code>i*pri[j]</code> 的最小质因子也是 <code>pri[j]</code> ，由于 <code>pri[j]</code> 是递增的，因此 <code>i*pri[j+1]</code> 的最小质因子应该是 <code>i</code> 的最小质因子也就是 <code>pri[j]</code> 而不是 <code>pri[j+1]</code> 因此在此处及时 <code>break</code> 。</p>
+<p>对于任意合数，枚举到最小质因子之前显然能把它筛去，因此能保证所有数不漏掉。</p>
+<p>由于每个数只会筛一次(<strong>合数由最小质因子筛去</strong>)，因此时间复杂度是 <code>O(n)</code> 的。这里筛合数时利用了最小质因子，在求<strong>欧拉函数</strong>时也有相同作用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e3</span>;</span><br><span class="line"><span class="keyword">int</span> pri[N],pcnt;</span><br><span class="line"><span class="keyword">bool</span> pvis[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">euler_prime</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!pvis[i]) pri[++pcnt]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;i*pri[j]&lt;=n;++j)&#123;</span><br><span class="line">            vis[i*pri[j]]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%pri[j]==<span class="number">0</span>)<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="反素数"><a href="#反素数" class="headerlink" title="反素数"></a>反素数</h3><p>如果某个正整数 <code>n</code> 满足以下条件则称为<strong>反素数</strong>：任何小于 <code>n</code> 的正数的约数个数都<strong>小于</strong> <code>n</code> 的约数个数。</p>
+<p>可以认为素数是一种因子最少的数(1和它本身)，那么反素数就是因子最多的数(且在因子个数一样时最小)，因此反素数是相对于一个集合而言的。</p>
+<p>根据唯一分解定理可以得到反素数的求值方法。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%8F%8D%E7%B4%A0%E6%95%B0%E6%B1%82%E5%80%BC.png?token=ARNPSRKUWTIMXAJEZATXWF3BPZFKW"
+                      alt="反素数求值"
+                ></p>
+<p>当然这里给集合元素绝对值作了限制(有限集合)，当最大值更大时应该灵活变化。</p>
+<p>实例题目及代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ version</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">    Number With The Given Amount Of Divisors (CF27E) : https://codeforces.com/problemset/problem/27/E</span></span><br><span class="line"><span class="comment">    求因子数一定(n)的最小正整数(反素数)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ULL unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF ~(0ull)</span></span><br><span class="line">ULL p[<span class="number">16</span>]=&#123; <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span> &#125;;</span><br><span class="line">ULL ans,n;</span><br><span class="line"><span class="comment">// depth: 当前在枚举第几个素数</span></span><br><span class="line"><span class="comment">// num: 当前因子数</span></span><br><span class="line"><span class="comment">// temp: 当前因子数量为 num 的时候的数值</span></span><br><span class="line"><span class="comment">// up：上一个素数的幂，这次应该小于等于这个幂次</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(ULL depth, ULL temp, ULL num, ULL up)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (num &gt; n || depth &gt;= <span class="number">16</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (num == n &amp;&amp; ans &gt; temp) &#123;</span><br><span class="line">        ans = temp; <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= up; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (temp / p[depth] &gt; ans) <span class="keyword">break</span>;</span><br><span class="line">        <span class="built_in">dfs</span>(depth + <span class="number">1</span>, temp = temp * p[depth], num * (i + <span class="number">1</span>), i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span>(cin&gt;&gt;n)&#123;</span><br><span class="line">        ans=INF;</span><br><span class="line">        <span class="built_in">dfs</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">64</span>);</span><br><span class="line">        cout&lt;&lt;ans&lt;&lt;<span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="唯一分解定理-算数基本定理"><a href="#唯一分解定理-算数基本定理" class="headerlink" title="唯一分解定理(算数基本定理)"></a>唯一分解定理(算数基本定理)</h2><p>首先有<strong>算数基本引理</strong>：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%BC%95%E7%90%86.png?token=ARNPSRNWURRPZZCATQD52NLBPZFUK"
+                      alt="算数基本引理"
+                ></p>
+<p>其次引出<strong>算数基本定理</strong>，也称为<strong>唯一分解定理</strong>：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%94%AF%E4%B8%80%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86.png?token=ARNPSRNIYGQPVOU3GYPFYVTBPZFV4"
+                      alt="唯一分解定理"
+                ></p>
+<p>依据唯一分解定理可以将任意正整数按乘积分解。</p>
+<p>关于其证明，如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%94%AF%E4%B8%80%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86%E8%AF%81%E6%98%8E.png?token=ARNPSRKGCULVG4JQLIORVYTBPZFXA"
+                      alt="唯一分解定理证明"
+                ></p>
+<p>接下来考虑根据这一定理对正整数<strong>质因数分解</strong>。</p>
+<ul>
+<li>试除法</li>
+</ul>
+<p>每个质数只一次，枚举时将其除尽，如此其倍数也会筛去。类似埃式筛。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e3</span>;</span><br><span class="line"><span class="keyword">int</span> c[N],p[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">divide</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            p[++cnt]=i;</span><br><span class="line">            c[cnt]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>) n/=i,c[cnt]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>)p[++cnt]=n,c[cnt]=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">// n = sum &#123; p[i]^c[i] &#125; (1&lt;=i&lt;=cnt)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Pollard Rho 算法</li>
+</ul>
+<p>考虑大数据高效率分解。引入 <code>Pollard rho</code> 算法。</p>
+<p>作为一个<strong>随机算法</strong>(随机大法好.jpg)， <code>Pollard rho</code> 能在 <code>O(n^(1/4))</code> 时间内找到一个数的质因子，然后再递归(除以改质因子)至质数，即可达到筛质数的效果(复杂度有点玄学)。算法策略如下：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/Pollard-rho.png?token=ARNPSRMVXQTBB3AQ6RX7AULBPZFYQ"
+                      alt="Pollard-rho"
+                ></p>
+<p>贴道<a class="link"   target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P4718" >洛谷的模板题<i class="fas fa-external-link-alt"></i></a>，(板子也是繁凡大佬的,我是懒狗)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">7</span>;</span><br><span class="line">ll x, y, a[N];</span><br><span class="line">ll max_factor;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">BigIntegerFactor</span> &#123;</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">7</span>;</span><br><span class="line">    ll prime[N], p[N], fac[N], sz, cnt; <span class="comment">//多组输入注意初始化cnt = 0</span></span><br><span class="line">    <span class="function"><span class="keyword">inline</span> ll <span class="title">mul</span><span class="params">(ll a, ll b, ll mod)</span> </span>&#123;          <span class="comment">//WA了尝试改为__int128或慢速乘</span></span><br><span class="line">        <span class="keyword">if</span> (mod &lt;= <span class="number">1000000000</span>)</span><br><span class="line">            <span class="keyword">return</span> a * b % mod;</span><br><span class="line">        <span class="keyword">return</span> (a * b - (ll)((<span class="keyword">long</span> <span class="keyword">double</span>)a / mod * b + <span class="number">1e-8</span>) * mod + mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> maxn)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> tot = <span class="number">0</span>;</span><br><span class="line">        sz = maxn - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= sz; ++i)</span><br><span class="line">            p[i] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= sz; ++i) &#123;</span><br><span class="line">            <span class="keyword">if</span> (p[i] == i)</span><br><span class="line">                prime[tot++] = i;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; tot &amp;&amp; <span class="number">1ll</span> * i * prime[j] &lt;= sz; ++j) &#123;</span><br><span class="line">                p[i * prime[j]] = prime[j];</span><br><span class="line">                <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll x, ll mod)</span> </span>&#123;</span><br><span class="line">        ll res = <span class="number">1ll</span>;</span><br><span class="line">        <span class="keyword">while</span> (x) &#123;</span><br><span class="line">            <span class="keyword">if</span> (x &amp; <span class="number">1</span>)</span><br><span class="line">                res = <span class="built_in">mul</span>(res, a, mod);</span><br><span class="line">            a = <span class="built_in">mul</span>(a, a, mod);</span><br><span class="line">            x &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(ll a, ll n)</span> </span>&#123;                     <span class="comment">//二次探测原理检验n</span></span><br><span class="line">        ll t = <span class="number">0</span>, u = n - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (!(u &amp; <span class="number">1</span>))</span><br><span class="line">            t++, u &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">        ll x = <span class="built_in">qpow</span>(a, u, n), xx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (t--) &#123;</span><br><span class="line">            xx = <span class="built_in">mul</span>(x, x, n);</span><br><span class="line">            <span class="keyword">if</span> (xx == <span class="number">1</span> &amp;&amp; x != <span class="number">1</span> &amp;&amp; x != n - <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            x = xx;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> xx == <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">miller</span><span class="params">(ll n, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span> (n &lt; <span class="number">2</span> || !(n &amp; <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (n &lt;= sz)</span><br><span class="line">            <span class="keyword">return</span> p[n] == n;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= k; ++i) &#123;            <span class="comment">//测试k次</span></span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">check</span>(<span class="built_in">rand</span>() % (n - <span class="number">1</span>) + <span class="number">1</span>, n))</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b == <span class="number">0</span> ? a : <span class="built_in">gcd</span>(b, a % b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> ll <span class="title">Abs</span><span class="params">(ll x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x &lt; <span class="number">0</span> ? -x : x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ll <span class="title">Pollard_rho</span><span class="params">(ll n)</span> </span>&#123;                 <span class="comment">//基于路径倍增的Pollard_Rho算法</span></span><br><span class="line">        ll s = <span class="number">0</span>, t = <span class="number">0</span>, c = <span class="built_in">rand</span>() % (n - <span class="number">1</span>) + <span class="number">1</span>, v = <span class="number">1</span>, ed = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= ed; ++i) &#123;</span><br><span class="line">                t = (<span class="built_in">mul</span>(t, t, n) + c) % n;</span><br><span class="line">                v = <span class="built_in">mul</span>(v, <span class="built_in">Abs</span>(t - s), n);</span><br><span class="line">                <span class="keyword">if</span> (i % <span class="number">127</span> == <span class="number">0</span>) &#123;</span><br><span class="line">                    ll d = <span class="built_in">gcd</span>(v, n);</span><br><span class="line">                    <span class="keyword">if</span> (d &gt; <span class="number">1</span>)</span><br><span class="line">                        <span class="keyword">return</span> d;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ll d = <span class="built_in">gcd</span>(v, n);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (d &gt; <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">return</span> d;</span><br><span class="line">            s = t;</span><br><span class="line">            v = <span class="number">1</span>;</span><br><span class="line">            ed &lt;&lt;= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">getfactor</span><span class="params">(ll n)</span> </span>&#123;                         <span class="comment">//得到所有的质因子(可能有重复的)</span></span><br><span class="line">        <span class="keyword">if</span> (n &lt;= sz) &#123;</span><br><span class="line">            <span class="keyword">while</span> (n != <span class="number">1</span>)</span><br><span class="line">                fac[cnt ++ ] = p[n], n /= p[n];</span><br><span class="line">            max_factor = max_factor &gt; p[n] ? max_factor : p[n];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">miller</span>(n, <span class="number">6</span>)) &#123;</span><br><span class="line">            fac[cnt ++ ] = n;</span><br><span class="line">            max_factor = max_factor &gt; n ? max_factor : n;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            ll d = n;</span><br><span class="line">            <span class="keyword">while</span> (d &gt;= n)</span><br><span class="line">                d = <span class="built_in">Pollard_rho</span>(n);</span><br><span class="line">            <span class="built_in">getfactor</span>(d);</span><br><span class="line">            <span class="built_in">getfactor</span>(n / d);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; Q;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//Q.init(N - 1);//如果代码超时且仅需要分解大数的质因数可以用这句话，否则不要用</span></span><br><span class="line">    ll T, n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        max_factor = <span class="number">-1</span>;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;n);</span><br><span class="line">        Q.<span class="built_in">getfactor</span>(n);</span><br><span class="line">        <span class="keyword">if</span>(max_factor == n)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">&quot;Prime&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, max_factor);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="约数与倍数"><a href="#约数与倍数" class="headerlink" title="约数与倍数"></a>约数与倍数</h2><p>约束或称因数，由唯一分解定理可得以下结论：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E7%BA%A6%E6%95%B0.png?token=ARNPSRLFIHCNON3KTGOQ44DBPZF3Q"
+                      alt="约数"
+                ></p>
+<p>考虑根据上式实现约数个数和约数和。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">如果 N = p1^c1 * p2^c2 * ... *pk^ck</span></span><br><span class="line"><span class="comment">约数个数： (c1 + 1) * (c2 + 1) * ... * (ck + 1)</span></span><br><span class="line"><span class="comment">约数之和： (p1^0 + p1^1 + ... + p1^c1) * ... * (pk^0 + pk^1 + ... + pk^ck)</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll</span><br><span class="line">unordered_map&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;p;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Devise</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//质数分解</span></span><br><span class="line">    <span class="keyword">int</span> x=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=x/i;++i)&#123;</span><br><span class="line">        <span class="keyword">while</span>(x%i==<span class="number">0</span>)x/=i,p[i]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">1</span>)p[x]++;</span><br><span class="line">    <span class="comment">//约数个数</span></span><br><span class="line">    ll cnt=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> elem:p) cnt=cnt*(elem.second+<span class="number">1</span>);</span><br><span class="line">    <span class="comment">//约数和</span></span><br><span class="line">    ll sum=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">auto</span> elem:p)&#123;</span><br><span class="line">        <span class="keyword">int</span> f=elem.first,s=elem.second;</span><br><span class="line">        ll res=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(s--) res=res*f+<span class="number">1</span>;</span><br><span class="line">        sum*=res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来考虑如何处理出约数来。</p>
+<ul>
+<li>单个数约数-试除法</li>
+</ul>
+<p>注意到约数成对存在，枚举约数去除即可。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt;factor;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_factor</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i*i&lt;=x;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x%i==<span class="number">0</span>) &#123;</span><br><span class="line">            factor.<span class="built_in">push_back</span>(i)</span><br><span class="line">            <span class="keyword">if</span>(i!=x/i) factor.<span class="built_in">push_back</span>(x/i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>n以内约数-倍数法</li>
+</ul>
+<p>按照埃式筛的形式以倍数加入约数。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%80%8D%E6%95%B0%E6%B3%95%E6%B1%82%E7%BA%A6%E6%95%B0.png?token=ARNPSRIZPVHYLSKCP3LRDKLBPZF5M"
+                      alt="倍数法求约数"
+                ></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e3</span>;</span><br><span class="line">vector&lt;<span class="keyword">int</span>&gt;factor[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">get_divide</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j*i&lt;=n;++j)&#123;</span><br><span class="line">            factor[i*j].<span class="built_in">push_back</span>(j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h3><p>最大公约数即为 <code>Greatest Common Divisor</code> ，常缩写为 <code>gcd</code> 。记作 <code>gac(a,b)</code> 或简记 <code>(a,b)</code> 。</p>
+<p>一般来说我们约定 <strong>任何非零整数和零的最大公约数为它本身</strong> 。</p>
+<p>最大公约数是很常见的应用，在竞赛中也多有涉及。一些常用结论(性质)：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/gcd%E6%80%A7%E8%B4%A8.png?token=ARNPSROLAD266KH4VIB626LBPZF6W"
+                      alt="gcd性质"
+                ></p>
+<ul>
+<li>辗转相除法(欧几里得算法): <code>gcd(a,b)=gcd(b,a%b)</code></li>
+</ul>
+<p>大名鼎鼎的欧几里得算法( <code>Euclidean algorithm</code> )，也称为辗转相除法，通过递归地相除得到两个数的最大公约数。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95.png?token=ARNPSRM5E4EKJRZ36JNKOM3BPZGAC"
+                      alt="欧几里得算法"
+                ></p>
+<p>时间复杂度 <code>O(log n)</code> 。</p>
+<p>最坏情况：斐波那契数列相邻的两项，因为斐波那契数列相邻的两项一定互质。</p>
+<p>欧几里德算法由于存在大量的取模运算，对于大整数耗时较大。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span> <span class="comment">// a &gt;= b</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> b==<span class="number">0</span> ? a : <span class="built_in">gcd</span>(b,a%b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gcd</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> d;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        d=b; b=a%b; a=d; <span class="comment">// swap</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更相减损法: <code>gcd(a,b)=gcd(a,a-b)</code>0</li>
+</ul>
+<p>源于《九章算术》，算是最古老的最大公约数求法之一了。</p>
+<p>证明：</p>
+<blockquote>
+<p>令 <code>gcd(a,a-b)=d , a=x*d , a-b=y*d , gcd(x,y)=1</code> 则 <code>b=(x-y)*d</code> 那么 <code>gcd(a,b)=gcd(x*d,(x-y)*d)=d=gcd(a,a-b)</code> 。</p>
+</blockquote>
+<ul>
+<li><code>Stein</code> 算法</li>
+</ul>
+<p>渐近时间，空间复杂度均与欧几里德算法相同。</p>
+<p>原理： <code>gcd(k*a,k*b)=k*gcd(a,b)</code> 。利用移位( <code>k=2</code> )和加减法避免了大整数取模。只有在大整数时才适用。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//递归</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stein</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b) a^=b, b^=a, a^=b; <span class="comment">//swap =&gt; a&gt;=b</span></span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>) <span class="keyword">return</span> a;</span><br><span class="line">    <span class="keyword">if</span>( (!(a&amp;<span class="number">1</span>)) &amp;&amp; (!(b&amp;<span class="number">1</span>)) ) <span class="keyword">return</span> <span class="built_in">stein</span>(a&gt;&gt;<span class="number">1</span>,b&gt;&gt;<span class="number">1</span>) &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( (a&amp;<span class="number">1</span>) &amp;&amp; (!(b&amp;<span class="number">1</span>)) ) <span class="keyword">return</span> <span class="built_in">stein</span>(a,b&gt;&gt;<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>( (!(a&amp;<span class="number">1</span>)) &amp;&amp; (b&amp;<span class="number">1</span>) ) <span class="keyword">return</span> <span class="built_in">stein</span>(a&gt;&gt;<span class="number">1</span>,b);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">stein</span>(a-b,b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//迭代</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">stein</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> k=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>( (!(a&amp;<span class="number">1</span>)) &amp;&amp; (!(b&amp;<span class="number">1</span>)) )&#123;</span><br><span class="line">        k&lt;&lt;=<span class="number">1</span>; a&gt;&gt;=<span class="number">1</span>; b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//k=2^p</span></span><br><span class="line">    <span class="keyword">while</span>(!(a&amp;<span class="number">1</span>))a&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(!(b&amp;<span class="number">1</span>))b&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(a&lt;b)a^=b, b^=a, a^=b; <span class="comment">//swap</span></span><br><span class="line">    <span class="keyword">while</span>(a!=b)&#123;</span><br><span class="line">        a-=b;</span><br><span class="line">        <span class="keyword">if</span>(a&lt;b)a^=b, b^=a, a^=b; <span class="comment">//swap</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> k*a;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最小公倍数"><a href="#最小公倍数" class="headerlink" title="最小公倍数"></a>最小公倍数</h3><p>两个数 <code>a</code> 和 <code>b</code> 的最小公倍数( <code>Leatest Common Multiple</code> )是指同时被 <code>a</code> 和 <code>b</code> 整除的最小倍数，记为 <code>lcm(a,b)</code> 。特殊的，当 <code>a</code> 和 <code>b</code> 互素时，<code>lcm(a,b)=a*b</code> 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/lcm%E4%B8%8Egcd%E6%8C%87%E6%95%B0%E8%A1%A8%E7%A4%BA%E6%B3%95.png?token=ARNPSRKYMT25URFC25YHEGLBPZGBS"
+                      alt="lcm与gcd指数表示法"
+                ></p>
+<p>关于 <code>lcm</code> 和 <code>gcd</code> ，二者可以相互转化，证明如下：</p>
+<blockquote>
+<p>对 <code>a,b</code> 质因数分解，得到若干质数 <code>p</code> 和对应指数 <code>k</code> ，那么 <code>lcm</code> 取 <code>min(ka,kb)</code> ，而 <code>gcd</code> 取 <code>max(ka,kb)</code> ，又 <code>ka+kb=min(ka,kb)+max(ka,kb)</code> 因此可以得到 <code>gcd(a,b)*lcm(a,b)=a*b</code> 。</p>
+</blockquote>
+<p>于是在求 <code>lcm</code> 时可以直接利用 <code>gcd</code> 。如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ version</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lcm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a/<span class="built_in">gcd</span>(a,b)*b;  <span class="comment">// 先除后乘防溢出</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="lcm与gcd一些定理"><a href="#lcm与gcd一些定理" class="headerlink" title="lcm与gcd一些定理"></a>lcm与gcd一些定理</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/lcm%E4%B8%8Egcd%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%90%86.png?token=ARNPSRMXBHHEORJJU4V7LG3BPZGDA"
+                      alt="lcm与gcd的一些定理"
+                ></p>
+<h2 id="互质与欧拉函数"><a href="#互质与欧拉函数" class="headerlink" title="互质与欧拉函数"></a>互质与欧拉函数</h2><p>所谓互质即 <code>gcd(a,b)=1</code> 。注意到对于 <strong><code>int</code> 范围内</strong>的数 <code>n</code> ，与其互质的数最多有<strong>1600</strong>个。</p>
+<h3 id="欧拉函数"><a href="#欧拉函数" class="headerlink" title="欧拉函数"></a>欧拉函数</h3><p>欧拉函数指( <code>Euler&#39;s totient function</code> )<strong>小于等于 <code>n</code> 且与 <code>n</code> 互质的数的个数</strong>。</p>
+<p>当 <code>n=p^k</code> 时有 <code>phi(n)=phi(p^k)=n-n/p=p^k-p^(k-1)=(p-1)*p^(k-1)=(1-1/p)*p^k</code> 。</p>
+<p>如果 <code>n</code> 本身是质数的话，那么显然 <code>phi(n)=phi(p)=p*(1-1/p)=p-1-n-1</code> (除了 <code>n</code> 以外的数都和 <code>n</code> 互质)。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0.png?token=ARNPSRKLFUVEJJWD7QGLE6DBPZGEO"
+                      alt="欧拉函数"
+                ></p>
+<p>值得一提的是欧拉函数是<strong>积性函数</strong>，因此在根据上面的式子在函数值上有如下转化：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E7%A7%AF%E6%80%A7%E8%BD%AC%E5%8C%96.png?token=ARNPSRPAGLKZOR57MOIUXRDBPZGGI"
+                      alt="欧拉函数积性转化"
+                ></p>
+<p>这就是经典的<strong>欧拉函数公式</strong>，事实上它的证明还可以利用<strong>容斥原理</strong>：</p>
+<blockquote>
+<p>考虑将 <code>n</code> 按唯一分解定理质因数分解，如果能把 <code>1~n</code> 内所有是 <code>p[i]</code> 的倍数的数找出来，那么剩下的数就是和 <code>n</code> 互质的数，因此问题转化为如何筛去 <code>1~n</code> 内所有是 <code>p[i]</code> 的倍数的数即筛去 <code>k(k%p==0)</code> 。考虑利用容斥定理，总数为 <code>n</code> ，先减去 <code>p[i]</code> 的倍数部分的数，再加上 <code>p[i]*p[j]</code> 的倍数部分的数，再减去 <code>p[i]*p[j]*p[k]</code> 的倍数部分的数，以此类推，</p>
+</blockquote>
+<h4 id="欧拉函数的一些性质"><a href="#欧拉函数的一些性质" class="headerlink" title="欧拉函数的一些性质"></a>欧拉函数的一些性质</h4><ul>
+<li><strong>积性函数</strong></li>
+</ul>
+<p>当 <code>gcd(a,b)=1</code> 时，有 <code>phi(a*b)=phi(a)*phi(b)</code> ，称此类有性质的函数为积性函数，事实上积性函数就是由欧拉函数拓展到一般函数的。</p>
+<ul>
+<li>偶数性质</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%81%B6%E6%95%B0%E6%80%A7%E8%B4%A8.png?token=ARNPSRP7HD7AB7EUVBTE3KLBPZGIQ"
+                      alt="偶数性质"
+                ></p>
+<ul>
+<li>和性质</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%92%8C%E6%80%A7%E8%B4%A8.png?token=ARNPSRMSK6WZAQU4TJAUTRDBPZGJQ"
+                      alt="和性质"
+                ></p>
+<ul>
+<li>其他性质</li>
+</ul>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%85%B6%E4%BB%96%E6%80%A7%E8%B4%A81.png?token=ARNPSRNVH24HMTQHM4V766TBPZGI2"
+                      alt="其他性质1"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%85%B6%E4%BB%96%E6%80%A7%E8%B4%A82.png?token=ARNPSRI6EAXHLYY4LKBB7NDBPZGI6"
+                      alt="其他性质2"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%85%B6%E4%BB%96%E6%80%A7%E8%B4%A83.png?token=ARNPSRKUQ4G2U3RCFHXE2ADBPZGJI"
+                      alt="其他性质3"
+                ></p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E5%85%B6%E4%BB%96%E6%80%A7%E8%B4%A84.png?token=ARNPSRNP6I2Y5G3TQBQEPRDBPZGJM"
+                      alt="其他性质4"
+                ></p>
+<h4 id="欧拉函数的求值"><a href="#欧拉函数的求值" class="headerlink" title="欧拉函数的求值"></a>欧拉函数的求值</h4><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E6%B1%82%E5%80%BC.png?token=ARNPSRJNU23PZ75DCRJ7X6DBPZGJW"
+                      alt="欧拉函数求值"
+                ></p>
+<ul>
+<li>单个数的欧拉函数(唯一分解定理)</li>
+</ul>
+<p>根据上述式子，对某个数质因数分解即可求出其欧拉函数值。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ version</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">euler_phi</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ans=n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i*i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;</span><br><span class="line">            ans=ans/i*(i<span class="number">-1</span>); <span class="comment">//euler_phi</span></span><br><span class="line">            <span class="keyword">while</span>(n%i==<span class="number">0</span>)n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(n&gt;<span class="number">1</span>)ans=ans*n*(n<span class="number">-1</span>);  <span class="comment">//left</span></span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>筛法求 <code>n</code> 以内的欧拉函数</li>
+</ul>
+<p>根上述容斥原理，可以利用筛法处理出质数来，同时处理出欧拉函数来。</p>
+<p>首先若 <code>n=p</code> 则 <code>phi[n]=n-1</code> 。<br>设 <code>n=p[j]*i</code> 当 <code>i%p[j]==0</code> ，那么 <code>n</code> 和 <code>i</code> 的质因子种类上是一样的，显然有 <code>phi[n]=phi[p[j]*i]=p[j]*phi[i]</code> 。<br>当 <code>i%p[j]!=0</code> 则 <code>n</code> 比 <code>i</code> 多了 <code>p[j]</code> 这一种质因子，以此有 <code>phi[n]=phi[p[j]*i]=phi[i]*(p[j]-1)</code> 。</p>
+<p>注意到此时欧拉函数是通过递推得到的，一般规定 <code>phi[1]=1</code> 。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//c++ version</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll; <span class="comment">//long long</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N=<span class="number">1e6</span>+<span class="number">5</span>;      <span class="comment">//maxn</span></span><br><span class="line">ll phi[N];</span><br><span class="line"><span class="keyword">int</span> pri[N],pcnt;</span><br><span class="line"><span class="keyword">bool</span> pvis[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getphi</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    phi[<span class="number">1</span>]=<span class="number">1ll</span>;   <span class="comment">//规定边界</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(!pvis[i])&#123;</span><br><span class="line">            phi[i]=i<span class="number">-1</span>;   <span class="comment">//phi[p]=p-1</span></span><br><span class="line">            pri[++pcnt]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;pri[j]&lt;=n/i;++j)&#123;</span><br><span class="line">            pvis[i*pri[j]]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i%pri[j]) &#123; phi[i*pri[j]]=phi[i]*(pri[j]<span class="number">-1</span>)*<span class="number">1ll</span>; &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; phi[i*pri[j]]=phi[i]*pri[j]*<span class="number">1ll</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="一些定理"><a href="#一些定理" class="headerlink" title="一些定理"></a>一些定理</h2><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://raw.githubusercontent.com/Zhuangpx/ACM/master/%E6%95%B0%E5%AD%A6/%E6%95%B0%E8%AE%BA/%E6%95%B0%E8%AE%BA%E5%9F%BA%E7%A1%80%EF%BC%88%E6%95%B4%E9%99%A4%E5%87%BA%E5%8F%91%EF%BC%89/assets/photos/%E5%AE%9A%E7%90%861.png?token=ARNPSRK6ZLNG5YISTEW6TNLBPZGO6"
+                      alt="定理1"
+                ></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a class="link"   target="_blank" rel="noopener" href="https://fanfansann.blog.csdn.net/article/details/113797542#0x11__89" >繁凡<i class="fas fa-external-link-alt"></i></a>(郑重鸣谢膜拜，写的实在太好了)</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://oi-wiki.org/" >OiWiki<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：数论基础(整除出发)</li>
+        <li>Post author：Zhuangpx</li>
+        <li>Create time：2021-10-31 15:28:49</li>
+        <li>
+            Post link：https://zhuangpx.github.io/2021/10/31/数论基础-整除出发/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/10/25/cf%E8%93%9D%E5%90%8D%E8%AE%B0%E5%BD%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">cf蓝名记录</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Zhuangpx</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;|&nbsp;Theme&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B4%E9%99%A4"><span class="nav-number">2.</span> <span class="nav-text">整除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A6%E4%BD%99%E9%99%A4%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">带余除法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B4%A8%E6%95%B0-%E7%B4%A0%E6%95%B0"><span class="nav-number">4.</span> <span class="nav-text">质数(素数)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A8%E6%95%B0%E5%88%A4%E5%AE%9A"><span class="nav-number">4.1.</span> <span class="nav-text">质数判定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A0%E6%95%B0%E6%B5%8B%E8%AF%95"><span class="nav-number">4.2.</span> <span class="nav-text">素数测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A8%E6%95%B0%E7%AD%9B"><span class="nav-number">4.3.</span> <span class="nav-text">质数筛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8D%E7%B4%A0%E6%95%B0"><span class="nav-number">4.4.</span> <span class="nav-text">反素数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%94%AF%E4%B8%80%E5%88%86%E8%A7%A3%E5%AE%9A%E7%90%86-%E7%AE%97%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">唯一分解定理(算数基本定理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%A6%E6%95%B0%E4%B8%8E%E5%80%8D%E6%95%B0"><span class="nav-number">6.</span> <span class="nav-text">约数与倍数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E5%85%AC%E7%BA%A6%E6%95%B0"><span class="nav-number">6.1.</span> <span class="nav-text">最大公约数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E5%B0%8F%E5%85%AC%E5%80%8D%E6%95%B0"><span class="nav-number">6.2.</span> <span class="nav-text">最小公倍数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lcm%E4%B8%8Egcd%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%90%86"><span class="nav-number">6.3.</span> <span class="nav-text">lcm与gcd一些定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%92%E8%B4%A8%E4%B8%8E%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="nav-number">7.</span> <span class="nav-text">互质与欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0"><span class="nav-number">7.1.</span> <span class="nav-text">欧拉函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%A7%E8%B4%A8"><span class="nav-number">7.1.1.</span> <span class="nav-text">欧拉函数的一些性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0%E7%9A%84%E6%B1%82%E5%80%BC"><span class="nav-number">7.1.2.</span> <span class="nav-text">欧拉函数的求值</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%90%86"><span class="nav-number">8.</span> <span class="nav-text">一些定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
